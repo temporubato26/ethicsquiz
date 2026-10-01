@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>철학 사상 퀴즈</title>
+  <meta name="description" content="중학생을 위한 재미있는 철학 사상 퀴즈 10문제">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="app" id="app">
+
+    <!-- 시작 화면 -->
+    <section class="screen" id="start-screen" aria-labelledby="start-title">
+      <div class="card start-card">
+        <div class="mascot" aria-hidden="true">🦉</div>
+        <h1 class="app-title" id="start-title" tabindex="-1">🧠 철학 사상 퀴즈</h1>
+        <p class="lead">10개의 문제를 풀면서 재미있게 철학자들의 생각을 알아봐요!</p>
+        <ul class="badge-row" aria-label="등장하는 철학자 예시">
+          <li class="badge pink">🏛️ 소크라테스</li>
+          <li class="badge blue">✨ 플라톤</li>
+          <li class="badge yellow">❤️ 공자</li>
+          <li class="badge green">💧 노자</li>
+          <li class="badge purple">🦋 장자</li>
+        </ul>
+        <ul class="howto">
+          <li><span aria-hidden="true">📝</span> 4개의 보기 중 하나를 골라요</li>
+          <li><span aria-hidden="true">💡</span> 고르면 쉬운 풀이가 나와요</li>
+          <li><span aria-hidden="true">🏆</span> 다 풀면 점수를 확인해요</li>
+        </ul>
+        <button type="button" class="btn btn-primary btn-big" id="start-btn">퀴즈 시작하기 🚀</button>
+      </div>
+    </section>
+
+    <!-- 퀴즈 화면 -->
+    <section class="screen" id="quiz-screen" aria-labelledby="question-text" hidden>
+      <header class="quiz-header">
+        <div class="quiz-header-top">
+          <p class="question-count" id="question-count">문제 1 / 10</p>
+          <button type="button" class="btn-link" id="home-btn">처음으로</button>
+        </div>
+        <div class="progress" id="progress" role="progressbar"
+             aria-label="퀴즈 진행률" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <ol class="steps" id="steps" aria-label="문제 진행 상태"></ol>
+      </header>
+
+      <article class="card quiz-card" id="quiz-card">
+        <p class="philosopher-chip" id="philosopher-chip"></p>
+        <h2 class="question-text" id="question-text" tabindex="-1"></h2>
+        <div class="choices" id="choices" role="group" aria-labelledby="question-text"></div>
+        <div class="feedback" id="feedback" aria-live="polite"></div>
+      </article>
+
+      <footer class="quiz-footer">
+        <button type="button" class="btn btn-primary btn-big" id="next-btn" disabled>다음 문제 ➜</button>
+        <p class="hint" id="next-hint">보기를 하나 골라 주세요 👆</p>
+      </footer>
+    </section>
+
+    <!-- 결과 화면 -->
+    <section class="screen" id="result-screen" aria-labelledby="result-title" hidden>
+      <div class="card result-card">
+        <div class="result-emoji" id="result-emoji" aria-hidden="true">🌟</div>
+        <h1 class="result-title" id="result-title" tabindex="-1"></h1>
+        <div class="score-boxes">
+          <div class="score-box pink">
+            <p class="score-label">최종 점수</p>
+            <p class="score-value" id="result-score"></p>
+          </div>
+          <div class="score-box blue">
+            <p class="score-label">맞힌 문제</p>
+            <p class="score-value" id="result-correct"></p>
+          </div>
+        </div>
+        <p class="result-desc" id="result-desc"></p>
+
+        <details class="review">
+          <summary>📖 문제 다시 보기</summary>
+          <ol class="review-list" id="review-list"></ol>
+        </details>
+
+        <button type="button" class="btn btn-primary btn-big" id="restart-btn">다시 풀기 🔄</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/questions.js"></script>
+  <script src="js/quiz-logic.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
